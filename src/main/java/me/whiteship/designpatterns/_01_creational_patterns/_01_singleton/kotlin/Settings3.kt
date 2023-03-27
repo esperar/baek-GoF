@@ -9,21 +9,22 @@ class Settings3 private constructor() {
      */
 
     companion object {
-        //@Volatile
+        @Volatile
         private var instance: Settings3? = null
 
-        // @Synchronized
+        @Synchronized
         fun getInstance(): Settings3 {
             var localInstance = instance
             if (localInstance == null) {
-                // synchronized(Settings3::class) 아니 여기 환경에서는 이게 안써지네
+                synchronized(Settings3::class.java) {
                     localInstance = instance
                     if (localInstance == null) {
                         localInstance = Settings3()
                         instance = localInstance
                     }
+                }
             }
-            return localInstance
+            return localInstance!!
         }
     }
 }
