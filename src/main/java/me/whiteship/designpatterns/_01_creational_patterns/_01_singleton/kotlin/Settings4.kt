@@ -1,7 +1,5 @@
 package me.whiteship.designpatterns._01_creational_patterns._01_singleton.kotlin
 
-
-
 class Settings4 private constructor() {
     private object Settings4Holder {
         val INSTANCE = Settings4()
